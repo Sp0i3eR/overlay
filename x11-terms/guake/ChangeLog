@@ -1,0 +1,39 @@
+# ChangeLog for x11-terms/guake
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/guake/ChangeLog,v 1.8 2011/03/23 06:22:50 ssuominen Exp $
+
+  23 Mar 2011; Samuli Suominen <ssuominen@gentoo.org> guake-0.4.2.ebuild:
+  Use SLOT dependencies for x11-libs/vte.
+
+  14 Oct 2010; Markos Chandras <hwoarang@gentoo.org> guake-0.4.2.ebuild:
+  Stable on amd64 wrt bug #340995
+
+  14 Oct 2010; Pawel Hajdan jr <phajdan.jr@gentoo.org> guake-0.4.2.ebuild:
+  x86 stable wrt bug #340995
+
+*guake-0.4.2 (05 Sep 2010)
+
+  05 Sep 2010; Samuli Suominen <ssuominen@gentoo.org> +guake-0.4.2.ebuild,
+  +files/guake-0.4.2-int-ssl-port.patch,
+  +files/guake-0.4.2-prefs-spinbox.patch:
+  Version bump wrt #336068 by "Florian".
+
+  08 Aug 2010; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  guake-0.4.1-r1.ebuild:
+  x86 stable wrt bug #331439
+
+  07 Aug 2010; Markos Chandras <hwoarang@gentoo.org> guake-0.4.1-r1.ebuild:
+  Stable on amd64 wrt bug #331439
+
+*guake-0.4.1-r1 (06 Jun 2010)
+
+  06 Jun 2010; Samuli Suominen <ssuominen@gentoo.org>
+  +guake-0.4.1-r1.ebuild, +files/guake-0.4.1-rename-tab-problem.patch:
+  Missing dev-python/dbus-python RDEPEND wrt #320921 by Kevin Dinant. Fix
+  tab renaming.
+
+*guake-0.4.1 (14 Apr 2010)
+
+  14 Apr 2010; Samuli Suominen <ssuominen@gentoo.org> +guake-0.4.1.ebuild:
+  Initial commit wrt #227559 by Isakov Alexandr.
+
