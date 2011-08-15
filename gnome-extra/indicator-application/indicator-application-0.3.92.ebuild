@@ -22,6 +22,8 @@ RDEPEND="
 	>=x11-libs/cairo-1.2.4
 	>=x11-libs/pango-1.14.0
 	>=dev-libs/dbus-glib-0.76
+	>=dev-libs/json-glib-0.7.6
+	>=dev-libs/libdbusmenu-0.3.91
 	>=gnome-base/gconf-2
 	>=dev-libs/libindicator-0.3
 	gnome-extra/indicator-applet"
