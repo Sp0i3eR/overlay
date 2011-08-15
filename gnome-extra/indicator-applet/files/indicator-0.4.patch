@@ -1,0 +1,71 @@
+diff -ru indicator-applet-0.4.12/configure indicator-applet-0.4.12.new/configure
+--- indicator-applet-0.4.12/configure	2011-04-15 06:39:18.000000000 +0400
++++ indicator-applet-0.4.12.new/configure	2011-08-15 21:50:03.307605184 +0400
+@@ -12087,18 +12087,18 @@
+     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0 >= \$GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= \$INDICATOR_REQUIRED_VERSION\""; } >&5
++                          indicator-0.4 >= \$INDICATOR_REQUIRED_VERSION\""; } >&5
+   ($PKG_CONFIG --exists --print-errors "gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION") 2>&5
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION") 2>&5
+   ac_status=$?
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+   test $ac_status = 0; }; then
+   pkg_cv_APPLET_CFLAGS=`$PKG_CONFIG --cflags "gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION" 2>/dev/null`
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -12112,18 +12112,18 @@
+     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0 >= \$GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= \$INDICATOR_REQUIRED_VERSION\""; } >&5
++                          indicator-0.4 >= \$INDICATOR_REQUIRED_VERSION\""; } >&5
+   ($PKG_CONFIG --exists --print-errors "gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION") 2>&5
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION") 2>&5
+   ac_status=$?
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+   test $ac_status = 0; }; then
+   pkg_cv_APPLET_LIBS=`$PKG_CONFIG --libs "gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION" 2>/dev/null`
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -12146,12 +12146,12 @@
+ 	        APPLET_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION" 2>&1`
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION" 2>&1`
+         else
+ 	        APPLET_PKG_ERRORS=`$PKG_CONFIG --print-errors "gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION" 2>&1`
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION" 2>&1`
+         fi
+ 	# Put the nasty error message in config.log where it belongs
+ 	echo "$APPLET_PKG_ERRORS" >&5
+@@ -12159,7 +12159,7 @@
+ 	as_fn_error $? "Package requirements (gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                           x11
+                           libpanelapplet-3.0
+-                          indicator >= $INDICATOR_REQUIRED_VERSION) were not met:
++                          indicator-0.4 >= $INDICATOR_REQUIRED_VERSION) were not met:
+ 
+ $APPLET_PKG_ERRORS
+ 

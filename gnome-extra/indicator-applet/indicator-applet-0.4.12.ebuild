@@ -41,7 +41,7 @@ src_prepare() {
 	# and is a part from src/ now, without copy paste
 	#mv data/GNOME_{FastUserSwitchApplet,IndicatorAppletSession}.server.in.in \
 	#	|| die "Could not move file"
-	#epatch "${FILESDIR}/${PN}-0.4.5-fastuserswitchapplet-collision.patch"
+	epatch "${FILESDIR}/indicator-0.4.patch"
 
 	# Note: there are no translations in po/
 	eautoreconf
