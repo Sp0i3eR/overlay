@@ -18,7 +18,7 @@ SRC_URI="http://launchpad.net/dbusmenu/${MY_MAJOR_VERSION}/${PV}/+download/${P}.
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gtk +introspection test vala"
+IUSE="+introspection"
 
 RDEPEND="dev-libs/glib:2
 	dev-libs/dbus-glib
@@ -26,20 +26,9 @@ RDEPEND="dev-libs/glib:2
 	gtk? ( x11-libs/gtk+:2 )"
 DEPEND="${RDEPEND}
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7 )
-	test? (
-		>=dev-libs/json-glib-0.13.4[introspection=]
-		dev-util/dbus-test-runner
-	)
-	vala? ( dev-lang/vala:0.12 )
 	dev-util/intltool
 	dev-util/pkgconfig"
 
-pkg_setup() {
-	if use vala && use !introspection ; then
-		eerror "Vala bindings (USE=vala) require introspection support (USE=introspection)"
-		die "Vala bindings (USE=vala) require introspection support (USE=introspection)"
-	fi
-}
 
 src_prepare() {
 	# Make Vala bindings optional, launchpad-bug #713685
@@ -60,20 +49,12 @@ src_prepare() {
 }
 
 src_configure() {
-	VALA_API_GEN=$(type -p vapigen-0.12) \
 		econf \
-		$(use_enable gtk) \
-		$(use_enable gtk dumper) \
 		$(use_enable introspection) \
-		$(use_enable test tests) \
-		$(use_enable vala)
+		--with-gtk=2
 }
 
-src_test() {
-	Xemake check || die "testsuite failed"
-}
 
-src_install() {
-	emake DESTDIR="${ED}" install || die "make install failed"
-	dodoc AUTHORS || die "dodoc failed"
-}
+#src_install() {
+#	emake DESTDIR="${ED}" install || die "make install failed"
+#}
