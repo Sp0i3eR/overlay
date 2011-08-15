@@ -27,7 +27,6 @@ RDEPEND="
 	gnome-extra/indicator-applet"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
-	dev-util/gtk-doc
 	dev-util/intltool"
 
 
