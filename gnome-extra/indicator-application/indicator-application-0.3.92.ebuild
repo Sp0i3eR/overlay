@@ -34,13 +34,12 @@ DEPEND="${RDEPEND}
 
 DOCS="AUTHORS ChangeLog COPYING README"
 
-src_prepare() {
-	gnome2_src_prepare
-
-	# disable Mono bindings
-#	sed -i -e '59,111s|^|#|g' -e '183,187d' \
-#		configure.ac || die
-#	sed -i -e '2d' bindings/Makefile.am
-
-#	(./autogen.sh) || die
+src_configure() {
+	econf \
+			--disable-static \
+			--with-gtk=2
 }
+
+#src_prepare() {
+#	gnome2_src_prepare
+#}
