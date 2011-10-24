@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[Sp0i3eR]]></name>
+    <description lang="en"><![CDATA[Gentoo overlay for myself (unlikely will be useful for someone, but who knows:) )]]></description>
+    <homepage>https://github.com/Sp0i3eR/overlay</homepage>
+    <owner type="person">
+      <email>maxim.bokov@gmail.com</email>
+      <name><![CDATA[Maxim Bokov]]></name>
+    </owner>
+    <source type="git">git://github.com/Sp0i3eR/overlay.git</source>
+    <feed>https://github.com/Sp0i3eR/overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
