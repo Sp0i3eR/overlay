@@ -12,7 +12,7 @@ SRC_URI="vpnclient-linux-x86_64-${MY_PV}.tar.gz"
 
 LICENSE="cisco-vpn-client"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE=""
 RESTRICT="fetch mirror strip"
 
