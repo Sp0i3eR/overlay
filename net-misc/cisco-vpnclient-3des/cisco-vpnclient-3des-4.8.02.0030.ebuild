@@ -43,7 +43,7 @@ src_unpack () {
 	cd "${S}"
 
 #	epatch "${FILESDIR}"/${PV}-amd64.patch
-#	epatch "${FILESDIR}"/${PV}-2.6.24.patch
+	epatch "${FILESDIR}"/${PV}-2.6.38.patch
 }
 
 src_install() {
