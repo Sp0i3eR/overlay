@@ -1,0 +1,112 @@
+diff -uNr xe-guest-utilities-5.5.0/gentoo/xe-daemon.init xe-guest-utilities-5.5.0-gentoo/gentoo/xe-daemon.init
+--- xe-guest-utilities-5.5.0/gentoo/xe-daemon.init	1970-01-01 01:00:00.000000000 +0100
++++ xe-guest-utilities-5.5.0-gentoo/gentoo/xe-daemon.init	2010-01-27 17:37:36.000000000 +0100
+@@ -0,0 +1,61 @@
++#!/sbin/runscript
++# Copyright 1999-2010 Gentoo Foundation
++# Distributed under the terms of the GNU General Public License v2
++
++depend() {
++	need localmount
++}
++
++XE_PROC=/proc/xen
++XE_LINUX_DISTRIBUTION=/usr/sbin/xe-linux-distribution
++XE_LINUX_DISTRIBUTION_CACHE=/var/cache/xe-linux-distribution
++XE_DAEMON=/usr/sbin/xe-daemon
++XE_DAEMON_PIDFILE=/var/run/xe-daemon.pid
++
++checkxen() {
++	if [ ! -d "$XE_PROC" ]; then
++		eerror "Directory not found: $XE_PROC"
++		eerror "You need a post 2.6.29-rc1 kernel with CONFIG_XEN_COMPAT_XENFS=y and CONFIG_XENFS=y|m"
++		return 1
++	fi
++}
++
++checklinuxdistribution() {
++	if [ ! -x "${XE_LINUX_DISTRIBUTION}" ] ; then
++		eerror "Program not found ${XE_LINUX_DISTRIBUTION}"
++		eerror "You don't appear to have XenTools installed yet."
++		return 1
++	fi
++
++	"${XE_LINUX_DISTRIBUTION}" "${XE_LINUX_DISTRIBUTION_CACHE}" \
++		|| eerror "Linux distribution version not detected."
++}
++
++mountxen() {
++	if [ ! -e "$XE_PROC"/xenbus ] ; then
++		# This is needed post 2.6.29-rc1, /proc/xen support was pushed upstream as a xen filesystem
++		einfo "Mounting xenfs on $XE_PROC"
++		mount -t xenfs none "$XE_PROC" || return 1
++	fi
++}
++
++start() {
++	checkxen || return 1
++
++	checklinuxdistribution || return 1
++
++	mountxen || return 1
++
++	ebegin "Starting xe daemon"
++	start-stop-daemon --start --exec "${XE_DAEMON}" --background \
++		--pidfile "${XE_DAEMON_PIDFILE}" --quiet \
++		-- -p "${XE_DAEMON_PIDFILE}"
++	eend $?
++}
++
++stop() {
++	ebegin "Stopping xe daemon"
++	start-stop-daemon --stop --exec "${XE_DAEMON}" \
++		--pidfile "${XE_DAEMON_PIDFILE}" --quiet
++	eend $?
++}
+diff -uNr xe-guest-utilities-5.5.0/xe-linux-distribution xe-guest-utilities-5.5.0-gentoo/xe-linux-distribution
+--- xe-guest-utilities-5.5.0/xe-linux-distribution	2009-08-27 12:01:45.000000000 +0200
++++ xe-guest-utilities-5.5.0-gentoo/xe-linux-distribution	2010-01-27 17:39:07.000000000 +0100
+@@ -211,6 +211,24 @@
+ 
+ }
+ 
++identify_gentoo()
++{
++    gentoo_release="$1"
++    if [ ! -e "${gentoo_release}" ] ; then
++	return 1
++    fi
++    distro="gentoo"
++    eval $(cat ${gentoo_release} | awk '{ print "release=" $5 }' )
++    if [ -z "${release}" ] ; then
++	return 1
++    fi
++    eval $(echo $release | awk -F. -- '{ print "major=" $1 ; print "minor=" $2 }' )
++    if [ -z "${major}" -o -z "$minor" ] ; then
++	return 1
++    fi
++    write_to_output "${distro}" "${major}" "${minor}" "${distro}"
++}
++
+ identify_lsb()
+ {
+     lsb_release="$1"
+@@ -257,6 +275,7 @@
+     identify_sles   /etc/SuSE-release   && exit 0
+     identify_lsb    lsb_release         && exit 0
+     identify_debian /etc/debian_version && exit 0
++    identify_gentoo /etc/gentoo-release && exit 0
+ 
+     if [ $# -eq 1 ] ; then
+ 	rm -f "$1"
+diff -ru uclibc-sources/tools/xenstore/xs_lib.h uclibc-sources.new/tools/xenstore/xs_lib.h
+--- uclibc-sources/tools/xenstore/xs_lib.h      2010-05-18 18:15:46.000000000 +0400
++++ uclibc-sources.new/tools/xenstore/xs_lib.h  2012-08-28 23:34:14.900767340 +0400
+@@ -34,6 +34,7 @@
+        /* Internal use. */
+        XS_PERM_ENOENT_OK = 4,
+        XS_PERM_OWNER = 8,
++       XS_PERM_RW = 3,
+ };
+ 
+ struct xs_permissions
