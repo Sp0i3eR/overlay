@@ -59,12 +59,12 @@ src_unpack() {
         eend ${?}
         assert "Failed to extract ${A} distribution..."
         cd "${S}"
-        epatch "${FILESDIR}/${PN}-${PVR}-gentoo.patch"
 	if use bin; then
 		unpack ../work/"${P}"/xenstore.tar.bz2
 	else
 		unpack ../work/"${P}"/xenstore-sources.tar.bz2
 	fi
+        epatch "${FILESDIR}/${PN}-${PVR}-gentoo.patch"
 }
 
 src_compile() {

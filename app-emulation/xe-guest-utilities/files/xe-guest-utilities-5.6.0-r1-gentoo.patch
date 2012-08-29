@@ -100,8 +100,8 @@ diff -uNr xe-guest-utilities-5.5.0/xe-linux-distribution xe-guest-utilities-5.5.
      if [ $# -eq 1 ] ; then
  	rm -f "$1"
 diff -ru uclibc-sources/tools/xenstore/xs_lib.h uclibc-sources.new/tools/xenstore/xs_lib.h
---- uclibc-sources/tools/xenstore/xs_lib.h      2010-05-18 18:15:46.000000000 +0400
-+++ uclibc-sources.new/tools/xenstore/xs_lib.h  2012-08-28 23:34:14.900767340 +0400
+--- 1/uclibc-sources/tools/xenstore/xs_lib.h      2010-05-18 18:15:46.000000000 +0400
++++ 1/uclibc-sources/tools/xenstore/xs_lib.h  2012-08-28 23:34:14.900767340 +0400
 @@ -34,6 +34,7 @@
         /* Internal use. */
         XS_PERM_ENOENT_OK = 4,
