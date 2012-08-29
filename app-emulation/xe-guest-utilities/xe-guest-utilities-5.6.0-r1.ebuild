@@ -8,9 +8,7 @@ DESCRIPTION="Citrix XenServer daemon and tools"
 HOMEPAGE="http://www.xensource.com/"
 SRC_URI="http://forums.citrix.com/servlet/JiveServlet/download/505-264057-1468355-30108/xe-guest-utilities-5.6.0-578.src.rpm"
 
-MY_PV="${PV/_p*}"
-MY_P="${PN}-${MY_PV}"
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${P}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -61,11 +59,11 @@ src_unpack() {
         eend ${?}
         assert "Failed to extract ${A} distribution..."
         cd "${S}"
-        epatch "${FILESDIR}/${MY_P}-gentoo.patch"
+        epatch "${FILESDIR}/${PN}-${PVR}-gentoo.patch"
 	if use bin; then
-		unpack ../work/"${MY_P}"/xenstore.tar.bz2
+		unpack ../work/"${P}"/xenstore.tar.bz2
 	else
-		unpack ../work/"${MY_P}"/xenstore-sources.tar.bz2
+		unpack ../work/"${P}"/xenstore-sources.tar.bz2
 	fi
 }
 
