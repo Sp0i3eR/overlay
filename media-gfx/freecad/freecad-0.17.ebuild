@@ -29,7 +29,7 @@ COMMON_DEPEND="
 	dev-libs/boost:=[python,${PYTHON_USEDEP}]
 	dev-libs/xerces-c[icu]
 	dev-python/matplotlib[${PYTHON_USEDEP}]
-	dev-python/pyside:2[svg,${PYTHON_USEDEP}]
+	dev-python/pyside2[svg,${PYTHON_USEDEP}]
 	dev-python/shiboken:2[${PYTHON_USEDEP}]
 	dev-qt/designer:5
 	dev-qt/qtgui:5
