@@ -51,7 +51,7 @@ RDEPEND="${COMMON_DEPEND}
 
 DEPEND="${COMMON_DEPEND}
 	>=dev-lang/swig-2.0.4-r1:0
-	dev-python/pyside-tools:2[${PYTHON_USEDEP}]"
+	dev-python/pyside2-tools[${PYTHON_USEDEP}]"
 
 PATCHES=(
 	"${FILESDIR}"/fix_path.patch
