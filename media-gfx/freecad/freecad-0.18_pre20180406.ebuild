@@ -146,33 +146,33 @@ src_prepare() {
 	rm -f "${S}/cMake/FindCoin3D.cmake" || die
 
 	sed -i '/^#define/a #include <QButtonGroup>' \
-	"${S}/src/Mod/MeshPart/Gui/ui_Tessellation.h \
-	"${S}/src/Mod/Part/Gui/ui_DlgSettingsGeneral.h
+	"${S}/src/Mod/MeshPart/Gui/Tessellation.h" \
+	"${S}/src/Mod/Part/Gui/DlgSettingsGeneral.h"
 
 	sed -i '/^#define/a #include <QAction>' \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintBearing.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintContact.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintDisplacement.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintFixed.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintFluidBoundary.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintForce.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintHeatflux.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintPlaneRotation.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintPressure.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintTemperature.h" \
-	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintTransform.h"
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintBearing.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintContact.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintDisplacement.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintFixed.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintFluidBoundary.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintForce.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintHeatflux.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintPlaneRotation.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintPressure.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintTemperature.h" \
+	"${S}/src/Mod/Fem/Gui/TaskFemConstraintTransform.h"
 
 	sed -i '/^#define /a #include <QAction>' \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskBooleanParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskChamferParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskDraftParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskFilletParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskLinearPatternParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskMirroredParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskMultiTransformParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskPolarPatternParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskScaledParameters.h" \
-	"${S}/src/Mod/PartDesign/Gui/ui_TaskThicknessParameters.h"
+	"${S}/src/Mod/PartDesign/Gui/TaskBooleanParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskChamferParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskDraftParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskFilletParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskLinearPatternParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskMirroredParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskMultiTransformParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskPolarPatternParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskScaledParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/TaskThicknessParameters.h"
 
 	cmake-utils_src_prepare
 }
