@@ -5,7 +5,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python3_5 python3_6 )
 
-inherit git-r3 distutils-r1 cmake-utils
+inherit git-r3 distutils-r1
 
 DESCRIPTION="Coin3d binding for Python"
 HOMEPAGE="http://pivy.coin3d.org/"
