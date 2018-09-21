@@ -23,7 +23,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-lang/swig"
 
-python_configure_all() {
+python_prepare_all() {
         append-cxxflags -std=c++11
+        distutils-r1_python_prepare_all
 }
 
+python_install_all() {
+        distutils-r1_python_install_all
+}
