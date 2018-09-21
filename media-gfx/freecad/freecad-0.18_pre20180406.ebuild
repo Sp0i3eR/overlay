@@ -117,7 +117,7 @@ DOCS=( README.md ChangeLog.txt )
 
 PATCHES=(
 	"${FILESDIR}/smesh-pthread.patch"
-	"${FILESDIR}/freecad-ModPath-find-boost_python.patch"
+#	"${FILESDIR}/freecad-ModPath-find-boost_python.patch"
 	)
 
 enable_module() {
