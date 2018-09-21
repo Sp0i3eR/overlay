@@ -23,11 +23,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-lang/swig"
 
-
-src_configure() {
-        local mycmakeargs=(
-                -DCMAKE_CXX_FLAGS="-std=c++11"
-        )
-        cmake-utils_src_configure
+python_configure_all() {
+        append-cxxflags -std=c++11
 }
 
