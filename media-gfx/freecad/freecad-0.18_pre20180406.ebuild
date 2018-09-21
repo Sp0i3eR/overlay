@@ -131,6 +131,11 @@ enable_module() {
 	echo "-DBUILD_${module^^}=${value}"
 }
 
+src_unpack() {
+	unpack ${A}
+	mv FreeCAD-0.18_pre freecad-0.18_pre20180406
+}
+
 pkg_setup() {
 	python-single-r1_pkg_setup
 }
