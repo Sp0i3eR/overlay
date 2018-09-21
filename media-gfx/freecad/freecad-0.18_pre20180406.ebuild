@@ -91,7 +91,7 @@ COMMON_DEPEND="
 	pcl? ( >=sci-libs/pcl-1.8.1[qt5,vtk(+)] )
 	qt5? (
 		dev-libs/libspnav
-		dev-python/pyside2[concurrent,network,opengl,printsupport,svg,xmlpatterns,webkit,${PYTHON_USEDEP}]
+		dev-python/pyside2[concurrent,network,opengl,printsupport,svg,xmlpatterns,${PYTHON_USEDEP}]
 		dev-python/shiboken2[${PYTHON_USEDEP}]
 		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
