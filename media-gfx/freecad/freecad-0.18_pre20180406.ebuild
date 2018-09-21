@@ -163,6 +163,7 @@ src_configure() {
 		-DOCC_INCLUDE_DIR=${CASROOT}/include/opencascade
 		-DOCC_LIBRARY_DIR=${CASROOT}/lib
 		-DOPENMPI_INCLUDE_DIRS=/usr/include/
+		-DMEDFILE_INCLUDE_DIRS=/usr/include/
 		$(enable_module addonmgr)
 		$(enable_module arch)
 		$(enable_module assembly)
