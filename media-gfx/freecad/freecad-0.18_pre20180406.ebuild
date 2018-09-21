@@ -144,6 +144,36 @@ src_prepare() {
 	# the upstream provided file doesn't find coin, but cmake ships
 	# a working one, so we use this.
 	rm -f "${S}/cMake/FindCoin3D.cmake" || die
+
+	sed -i '/^#define/a #include <QButtonGroup>' \
+	"${S}/src/Mod/MeshPart/Gui/ui_Tessellation.h \
+	"${S}/src/Mod/Part/Gui/ui_DlgSettingsGeneral.h
+
+	sed -i '/^#define/a #include <QAction>' \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintBearing.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintContact.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintDisplacement.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintFixed.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintFluidBoundary.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintForce.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintHeatflux.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintPlaneRotation.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintPressure.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintTemperature.h" \
+	"${S}/src/Mod/Fem/Gui/ui_TaskFemConstraintTransform.h"
+
+	sed -i '/^#define /a #include <QAction>' \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskBooleanParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskChamferParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskDraftParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskFilletParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskLinearPatternParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskMirroredParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskMultiTransformParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskPolarPatternParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskScaledParameters.h" \
+	"${S}/src/Mod/PartDesign/Gui/ui_TaskThicknessParameters.h"
+
 	cmake-utils_src_prepare
 }
 
